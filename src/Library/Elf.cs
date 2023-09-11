@@ -7,11 +7,8 @@ namespace RoleplayGame
     {
         public int Health { get; set; }
         public int Attack { get; set; }
+        public int Defense { get; set; }
         
-        public void Stats
-        {
-            this.Health = 70
-            this.Attack = 50
-        }
+
     }
 }
