@@ -16,5 +16,35 @@ namespace RoleplayGame
         {
             elf.Health -= Attack;
         }
+
+        public void AddSword (Sword sword)
+        {
+            Attack += sword.attackvalue;
+            Health += sword.defensevalue;
+        }
+
+        public void AddAxe (Axe axe)
+        {
+            Attack += axe.attackvalue;
+            Health += axe.defensevalue;
+        }
+
+        public void AddShield (Shield shield)
+        {
+            Attack += shield.attackvalue;
+            Health += shield.defensevalue;
+        }
+
+        public void AddLightArmor (LightArmor lightarmor)
+        {
+            Attack += lightarmor.attackvalue;
+            Health += lightarmor.defensevalue;
+        }
+
+        public void AddHeavyArmor (HeavyArmor heavyarmor)
+        {
+            Attack += heavyarmor.attackvalue;
+            Health += heavyarmor.defensevalue;
+        }
     }
 }
