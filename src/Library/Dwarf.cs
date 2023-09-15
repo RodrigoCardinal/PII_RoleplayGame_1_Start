@@ -6,21 +6,20 @@ namespace RoleplayGame
 {
     public class Dwarf
     {
-        public string Name {get;set;}
+        public string Name { get; set; }
         public int Health { get; set; } = 175;
         public int Attack { get; set; } = 25;
         public int InitialHealth { get; set; } = 175;
         public Dwarf (string name)
         {
-            this.Name=name;          
+            this.Name = name;          
         }
 
-
-        public void AttackWizard(Wizard wizard)
+        public void AttackWizard (Wizard wizard)
         {
             wizard.Health -= Attack;
         }
-        public void AttackElf(Elf elf)
+        public void AttackElf (Elf elf)
         {
             elf.Health -= Attack;
         }
@@ -84,17 +83,17 @@ namespace RoleplayGame
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
         }
-        public void Heal(Dwarf dwarf)
+        public void Heal (Dwarf dwarf)
         {
-            Health=InitialHealth;
+            Health = InitialHealth;
         }
-        public void GetAttack(Dwarf dwarf)
+        public void GetAttack (Dwarf dwarf)
         {
-            Console.WriteLine($"El valor de ataque para {dwarf.Name} es {dwarf.Attack}");
+            Console.WriteLine ($"El valor de ataque para {dwarf.Name} es {dwarf.Attack}");
         }
-        public void GetHealth(Dwarf dwarf)
+        public void GetHealth (Dwarf dwarf)
         {
-            Console.WriteLine($"El valor de ataque para {dwarf.Name} es {dwarf.Health}");
+            Console.WriteLine ($"El valor de ataque para {dwarf.Name} es {dwarf.Health}");
         }
     }
 }
