@@ -1,23 +1,32 @@
-using System;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-
 namespace RoleplayGame
 {
-    public class Items
+    public class Sword
     {
-        public string Name {get;set;}//Nombre del elemento
-        public int AttackDamage {get;set;}
-        public int Defense {get;set;}
+        public int attackvalue = 10;
+        public int defensevalue = 0;
+    }
 
-        public string TypeOfItem {get;set;}// Pueden ser ropaje (túnica, por ejemplo), armas (como un hacha o una espada), entre otros.
+    public class Axe
+    {
+        public int attackvalue = 15;
+        public int defensevalue = 0;
+    }
 
-        public Items(string name,int attackDamage,int defense,string typeOfItem)
-        {
-            this.Name=name;
-            this.AttackDamage=attackDamage;
-            this.Defense=defense;
-            this.TypeOfItem=typeOfItem;
-        }
+    public class Shield
+    {
+        public int attackvalue = 0;
+        public int defensevalue = 20;
+    }
+
+    public class LightArmor
+    {
+        public int attackvalue = 0;
+        public int defensevalue = 15;
+    }
+
+    public class HeavyArmor
+    {
+        public int attackvalue = 0;
+        public int defensevalue = 30;
     }
 }
