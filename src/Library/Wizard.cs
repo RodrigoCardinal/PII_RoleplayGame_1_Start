@@ -27,10 +27,22 @@ namespace RoleplayGame
             Health += sword.defensevalue;
         }
 
+        public void RemoveSword (Sword sword)
+        {
+            Attack -= sword.attackvalue;
+            Health -= sword.defensevalue;
+        }
+
         public void AddAxe (Axe axe)
         {
             Attack += axe.attackvalue;
             Health += axe.defensevalue;
+        }
+
+        public void RemoveAxe (Axe axe)
+        {
+            Attack -= axe.attackvalue;
+            Health -= axe.defensevalue;
         }
 
         public void AddShield (Shield shield)
@@ -39,16 +51,34 @@ namespace RoleplayGame
             Health += shield.defensevalue;
         }
 
+        public void RemoveShield (Shield shield)
+        {
+            Attack -= shield.attackvalue;
+            Health -= shield.defensevalue;
+        }
+
         public void AddLightArmor (LightArmor lightarmor)
         {
             Attack += lightarmor.attackvalue;
             Health += lightarmor.defensevalue;
         }
 
+        public void RemoveLightArmor (LightArmor lightArmor)
+        {
+            Attack -= lightArmor.attackvalue;
+            Health -= lightArmor.defensevalue;
+        }
+
         public void AddHeavyArmor (HeavyArmor heavyarmor)
         {
             Attack += heavyarmor.attackvalue;
             Health += heavyarmor.defensevalue;
+        }
+
+        public void RemoveHeavyArmor (HeavyArmor heavyarmor)
+        {
+            Attack -= heavyarmor.attackvalue;
+            Health -= heavyarmor.defensevalue;
         }
     }
 }
