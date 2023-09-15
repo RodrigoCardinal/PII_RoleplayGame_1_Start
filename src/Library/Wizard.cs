@@ -7,6 +7,7 @@ namespace RoleplayGame
 {   
     public class Wizard
     {
+<<<<<<< HEAD
         public string Name {get;set;}
         public int Health {get;set;}
         public int Attack=10;
@@ -19,6 +20,10 @@ namespace RoleplayGame
 
 
         }
+=======
+        public int Health {get;set;}
+        public int Attack {get;set;}
+>>>>>>> 6e62993a66ae754e179f1e29771fdf010f9fc63b
 
        
         
