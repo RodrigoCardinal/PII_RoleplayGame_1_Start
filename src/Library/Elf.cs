@@ -4,10 +4,15 @@ using System.Runtime.CompilerServices;
 namespace RoleplayGame 
 {
     public class Elf
-    {
+    {   
+        public string Name {get;set;}
         public int Health { get; set; } = 100;
         public int Attack { get; set; } = 10;
 
+        public Elf(string name)
+        {
+            this.Name=name;
+        }
         public void AttackWizard(Wizard attack)
         {
             attack.Health -= Attack;

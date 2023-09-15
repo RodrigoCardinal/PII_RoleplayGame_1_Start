@@ -5,8 +5,15 @@ namespace RoleplayGame
 {
     public class Dwarves
     {
+        public string Name {get;set;}
         public int Health { get; set; } = 150;
         public int Attack { get; set; } = 25;
+
+        public Dwarves (string name)
+        {
+            this.Name=name;
+        }
+
 
         public void AttackWizard(Wizard wizard)
         {

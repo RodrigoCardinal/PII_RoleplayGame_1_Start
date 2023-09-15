@@ -11,6 +11,11 @@ namespace RoleplayGame
         public int Health {get;set;}
         public int Attack=10;
 
+        public Wizard(string name)
+        {
+            this.Name=name;
+        }
+
         public void AttackElf(Elf elf)
         {
             elf.Health-=Attack;
