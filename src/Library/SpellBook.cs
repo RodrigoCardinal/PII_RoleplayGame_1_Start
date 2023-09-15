@@ -13,6 +13,5 @@ namespace RoleplayGame
         spellbook.Add ("Earthquake" , 20);
         spellbook.Add ("Snowstorm" , 15);
     }
-
     }
 }
