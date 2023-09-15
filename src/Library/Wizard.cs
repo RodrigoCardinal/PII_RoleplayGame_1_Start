@@ -85,5 +85,13 @@ namespace RoleplayGame
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
         }
+        public void GetAttack(Wizard wizard)
+        {
+            Console.WriteLine($"El valor de ataque para {wizard.Name} es {wizard.Attack}");
+        }
+        public void GetHealth(Wizard wizard)
+        {
+            Console.WriteLine($"El valor de ataque para {wizard.Name} es {wizard.Health}");
+        }
     }
 }

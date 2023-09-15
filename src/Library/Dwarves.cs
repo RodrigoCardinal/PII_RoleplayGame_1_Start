@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
@@ -12,6 +13,7 @@ namespace RoleplayGame
         public Dwarves (string name)
         {
             this.Name=name;
+          
         }
 
 
@@ -82,6 +84,15 @@ namespace RoleplayGame
         {
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
+        }
+
+        public void GetAttack(Dwarves dwarf)
+        {
+            Console.WriteLine($"El valor de ataque para {dwarf.Name} es {dwarf.Attack}");
+        }
+        public void GetHealth(Dwarves dwarf)
+        {
+            Console.WriteLine($"El valor de ataque para {dwarf.Name} es {dwarf.Health}");
         }
     }
 }

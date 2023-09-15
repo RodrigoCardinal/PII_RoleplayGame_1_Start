@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
@@ -80,6 +81,14 @@ namespace RoleplayGame
         {
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
+        }
+        public void GetAttack(Elf elf)
+        {
+            Console.WriteLine($"El valor de ataque para {elf.Name} es {elf.Attack}");
+        }
+        public void GetHealth(Elf elf)
+        {
+            Console.WriteLine($"El valor de ataque para {elf.Name} es {elf.Health}");
         }
     }
 }
