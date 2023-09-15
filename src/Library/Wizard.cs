@@ -8,8 +8,10 @@ namespace RoleplayGame
     public class Wizard
     {
         public string Name {get;set;}
-        public int Health {get;set;}
-        public int Attack=10;
+        public int Health {get;set;}=125;
+        public int Attack{get;set;}=10;
+        public int InitialHealth { get; set; } = 125;
+
 
         public Wizard(string name)
         {
@@ -21,7 +23,7 @@ namespace RoleplayGame
             elf.Health-=Attack;
         }
 
-        public void AttackDwarves(Dwarves Dwarve)
+        public void AttackDwarves(Dwarf Dwarve)
         {
             Dwarve.Health-=Attack;
         }
@@ -84,6 +86,10 @@ namespace RoleplayGame
         {
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
+        }
+        public void Heal(Wizard wizard)
+        {
+            Health=InitialHealth;
         }
         public void GetAttack(Wizard wizard)
         {

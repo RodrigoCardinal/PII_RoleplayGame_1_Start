@@ -9,6 +9,8 @@ namespace RoleplayGame
         public string Name {get;set;}
         public int Health { get; set; } = 100;
         public int Attack { get; set; } = 10;
+        public int InitialHealth { get; set; } = 100;
+
 
         public Elf(string name)
         {
@@ -18,7 +20,7 @@ namespace RoleplayGame
         {
             attack.Health -= Attack;
         }
-        public void AttackDwarves(Dwarves Dwarve)
+        public void AttackDwarves(Dwarf Dwarve)
         {
             Dwarve.Health-=Attack;
         }
@@ -81,6 +83,10 @@ namespace RoleplayGame
         {
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
+        }
+        public void Heal(Elf elf)
+        {
+            Health=InitialHealth;
         }
         public void GetAttack(Elf elf)
         {

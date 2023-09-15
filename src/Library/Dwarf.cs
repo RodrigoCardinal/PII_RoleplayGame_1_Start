@@ -4,16 +4,15 @@ using System.Runtime.CompilerServices;
 
 namespace RoleplayGame 
 {
-    public class Dwarves
+    public class Dwarf
     {
         public string Name {get;set;}
-        public int Health { get; set; } = 150;
+        public int Health { get; set; } = 175;
         public int Attack { get; set; } = 25;
-
-        public Dwarves (string name)
+        public int InitialHealth { get; set; } = 175;
+        public Dwarf (string name)
         {
-            this.Name=name;
-          
+            this.Name=name;          
         }
 
 
@@ -85,12 +84,15 @@ namespace RoleplayGame
             Attack -= heavyarmor.attackvalue;
             Health -= heavyarmor.defensevalue;
         }
-
-        public void GetAttack(Dwarves dwarf)
+        public void Heal(Dwarf dwarf)
+        {
+            Health=InitialHealth;
+        }
+        public void GetAttack(Dwarf dwarf)
         {
             Console.WriteLine($"El valor de ataque para {dwarf.Name} es {dwarf.Attack}");
         }
-        public void GetHealth(Dwarves dwarf)
+        public void GetHealth(Dwarf dwarf)
         {
             Console.WriteLine($"El valor de ataque para {dwarf.Name} es {dwarf.Health}");
         }
