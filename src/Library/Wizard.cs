@@ -11,18 +11,14 @@ namespace RoleplayGame
         public int Health {get;set;}
         public int Attack=10;
 
-        
-        
+        public void AttackElf(Elf elf)
+        {
+            elf.Health-=Attack;
+        }
 
-
-
-
-
+        public void AttackDwarves(Dwarves Dwarve)
+        {
+            Dwarve.Health-=Attack;
+        }
     }
-
-
-
-
-
-
 }
