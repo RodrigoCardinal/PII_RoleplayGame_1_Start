@@ -90,6 +90,21 @@ namespace RoleplayGame
         {
             Health = InitialHealth;
         }
+        public void CastSpell (string spellname, SpellBook spellbook)
+        {
+            int spellvalue = spellbook.SpellInSpellBook (spellname);
+        
+            if (spellvalue > 0)
+            {
+                Attack += spellvalue;
+                Console.WriteLine ($"El mago {Name} ha lanzado el hechizo {spellname} y ha aumentado su ataque en {spellvalue} puntos.");
+            }
+            else
+            {
+                Console.WriteLine ($"El hechizo {spellname} no existe en el SpellBook.");
+            }
+        }
+
         public void GetAttack (Wizard wizard)
         {
             Console.WriteLine ($"El valor de ataque para {wizard.Name} es {wizard.Attack}");

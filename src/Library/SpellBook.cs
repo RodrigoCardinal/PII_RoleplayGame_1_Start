@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace RoleplayGame
@@ -12,6 +13,17 @@ namespace RoleplayGame
         spellbook.Add ("Thunder" , 5);
         spellbook.Add ("Earthquake" , 20);
         spellbook.Add ("Snowstorm" , 15);
+    }
+    public int SpellInSpellBook (string spellname)
+    {
+        if (spellbook.ContainsKey (spellname))
+        {
+            return spellbook [spellname];
+        }
+        else
+        {
+            return 0;
+        }
     }
     }
 }
