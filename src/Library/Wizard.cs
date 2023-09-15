@@ -6,8 +6,8 @@ namespace RoleplayGame
 {   
     public class Wizard
     {
-        public int Vida {get;set;}
-        public int Ataque {get;set;}
+        public int Health {get;set;}
+        public int Attack {get;set;}
 
        
         

@@ -5,10 +5,13 @@ namespace RoleplayGame
 {
     public class Elf
     {
-        public int Health { get; set; }
-        public int Attack { get; set; }
-        public int Defense { get; set; }
-        
+        public int Health { get; set; } = 100;
+        public int Attack { get; set; } = 10;
+
+        public void AttackWizard(Wizard attack)
+        {
+            attack.Health -= Attack;
+        }
 
     }
 }
