@@ -101,7 +101,7 @@ namespace RoleplayGame
             }
             else
             {
-                Console.WriteLine ($"El hechizo {spellname} no existe en el SpellBook.");
+                Console.WriteLine ($"El hechizo {spellname} no existe en el libro de hechizos.");
             }
         }
 
@@ -111,7 +111,7 @@ namespace RoleplayGame
         }
         public void GetHealth (Wizard wizard)
         {
-            Console.WriteLine ($"El valor de ataque para {wizard.Name} es {wizard.Health}");
+            Console.WriteLine ($"El valor de salud para {wizard.Name} es {wizard.Health}");
         }
     }
 }

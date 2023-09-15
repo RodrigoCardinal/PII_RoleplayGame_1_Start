@@ -93,8 +93,7 @@ namespace RoleplayGame
         }
         public void GetHealth (Elf elf)
         {
-            Console.WriteLine ($"El valor de ataque para {elf.Name} es {elf.Health}");
+            Console.WriteLine ($"El valor de salud para {elf.Name} es {elf.Health}");
         }
     }
 }
-

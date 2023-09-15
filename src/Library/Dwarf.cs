@@ -93,7 +93,7 @@ namespace RoleplayGame
         }
         public void GetHealth (Dwarf dwarf)
         {
-            Console.WriteLine ($"El valor de ataque para {dwarf.Name} es {dwarf.Health}");
+            Console.WriteLine ($"El valor de salud para {dwarf.Name} es {dwarf.Health}");
         }
     }
 }
