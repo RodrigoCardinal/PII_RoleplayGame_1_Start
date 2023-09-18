@@ -8,8 +8,8 @@ namespace RoleplayGame
     public class Wizard
     {
         public string Name { get; set; }
-        public int Health { get; set; }=125;
-        public int Attack { get; set; }=10;
+        public int Health { get; set; } = 125;
+        public int Attack { get; set; } = 10;
         public int InitialHealth { get; set; } = 125;
 
         public Wizard (string name)
@@ -97,21 +97,16 @@ namespace RoleplayGame
             if (spellvalue > 0)
             {
                 Attack += spellvalue;
-                Console.WriteLine ($"El mago {Name} ha lanzado el hechizo {spellname} y ha aumentado su ataque en {spellvalue} puntos.");
-            }
-            else
-            {
-                Console.WriteLine ($"El hechizo {spellname} no existe en el libro de hechizos.");
             }
         }
 
-        public void GetAttack (Wizard wizard)
+        public int GetAttack (Wizard wizard)
         {
-            Console.WriteLine ($"El valor de ataque para {wizard.Name} es {wizard.Attack}");
+            return wizard.Attack;
         }
-        public void GetHealth (Wizard wizard)
+        public int GetHealth (Wizard wizard)
         {
-            Console.WriteLine ($"El valor de salud para {wizard.Name} es {wizard.Health}");
+            return wizard.Health;
         }
     }
 }
