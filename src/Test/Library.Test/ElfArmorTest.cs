@@ -3,17 +3,17 @@ using RoleplayGame;
 
 namespace Test.Library
 {
-    public class DwarfEquipmentTest
+    public class ElfArmorTest
     {
         [Test]
         public void InvalidWeaponEquip()
         {
 
-            Dwarf enano = new Dwarf("enano");
-            Axe hacha = new Axe();
+            Elf elfo = new Elf("elfo");
+            LightArmor armaduraliviana = new LightArmor();
 
-            bool firstEquipResult = enano.AddAxe(hacha);
-            bool secondEquipResult = enano.AddAxe(hacha);
+            bool firstEquipResult = elfo.AddLightArmor(armaduraliviana);
+            bool secondEquipResult = elfo.AddLightArmor(armaduraliviana);
             bool expectedSecondEquipResult = false;
             Assert.AreEqual(expectedSecondEquipResult, secondEquipResult);
         }
