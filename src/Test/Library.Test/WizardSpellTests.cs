@@ -2,12 +2,12 @@ using NUnit.Framework;
 
 namespace Test.Library
 {
-    public class ExampleTest
+    public class RolePlayTests
     {
         [Test]
-        public void dummyTest()
+        public void HechizoInvalido()
         {
-            Assert.True(true);
+            
         }
     }
 }
