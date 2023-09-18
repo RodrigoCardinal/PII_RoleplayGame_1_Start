@@ -27,17 +27,19 @@ namespace RoleplayGame
             elf.Health -= Attack;
         }
 
-        public void AddSword (Sword sword)
+        public bool AddSword (Sword sword)
         {
             if( HandStatus == false ) 
             {
-            Attack += sword.attackvalue;
-            Health += sword.defensevalue;
-            HandStatus = true;
+                Attack += sword.attackvalue;
+                Health += sword.defensevalue;
+                 HandStatus = true;
+                 return HandStatus;
+
             }
             else
             {
-                return -1;
+                return false;
             }
         }
 
@@ -47,17 +49,18 @@ namespace RoleplayGame
             Health -= sword.defensevalue;
         }
 
-        public void AddAxe (Axe axe)
+        public bool AddAxe (Axe axe)
         {
            if( HandStatus == false ) 
             {
-            Attack += axe.attackvalue;
-            Health += axe.defensevalue;
-            HandStatus = true;
+                Attack += axe.attackvalue;
+                Health += axe.defensevalue;
+                HandStatus = true;
+                return HandStatus;
             }
             else
             {
-                return -1;
+                return false;
             }
         }
 
@@ -67,17 +70,18 @@ namespace RoleplayGame
             Health -= axe.defensevalue;
         }
 
-        public void AddShield (Shield shield)
+        public bool AddShield (Shield shield)
         {
             if( HandStatus == false ) 
             {
-            Attack += shield.attackvalue;
-            Health += shield.defensevalue;
-            HandStatus = true;
+                Attack += shield.attackvalue;
+                Health += shield.defensevalue;
+                HandStatus = true;
+                return HandStatus;
             }
             else
             {
-                return -1;
+                return false;
             }
         }
 
@@ -87,17 +91,18 @@ namespace RoleplayGame
             Health -= shield.defensevalue;
         }
 
-        public void AddLightArmor (LightArmor lightarmor)
+        public bool AddLightArmor (LightArmor lightarmor)
         {
             if( ArmorStatus == false ) 
             {
-            Attack += lightarmor.attackvalue;
-            Health += lightarmor.defensevalue;
-            ArmorStatus = true;
+                Attack += lightarmor.attackvalue;
+                Health += lightarmor.defensevalue;
+                ArmorStatus = true;
+                return ArmorStatus;
             }
             else
             {
-                return -1;
+                return false;
             }
         }
 
@@ -107,17 +112,18 @@ namespace RoleplayGame
             Health -= lightArmor.defensevalue;
         }
 
-        public void AddHeavyArmor (HeavyArmor heavyarmor)
+        public bool AddHeavyArmor (HeavyArmor heavyarmor)
         {
             if( ArmorStatus == false ) 
             {
-            Attack += heavyarmor.attackvalue;
-            Health += heavyarmor.defensevalue;
-            ArmorStatus = true;
+                Attack += heavyarmor.attackvalue;
+                Health += heavyarmor.defensevalue;
+                ArmorStatus = true;
+                return ArmorStatus;
             }
             else
             {
-                return -1;
+                return false;
             }
         }
 
