@@ -10,7 +10,8 @@ namespace RoleplayGame
         public int Health { get; set; } = 100;
         public int Attack { get; set; } = 10;
         public int InitialHealth { get; set; } = 100;
-
+        public bool HandStatus = false;
+        public bool ArmorStatus = false;
         public Elf (string name)
         {
             this.Name = name;
@@ -24,10 +25,20 @@ namespace RoleplayGame
             Dwarve.Health -= Attack;
         }
 
-        public void AddSword (Sword sword)
+        public bool AddSword (Sword sword)
         {
-            Attack += sword.attackvalue;
-            Health += sword.defensevalue;
+            if( HandStatus == false ) 
+            {
+                Attack += sword.attackvalue;
+                Health += sword.defensevalue;
+                 HandStatus = true;
+                 return HandStatus;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void RemoveSword (Sword sword)
@@ -36,10 +47,20 @@ namespace RoleplayGame
             Health -= sword.defensevalue;
         }
 
-        public void AddAxe (Axe axe)
+        public bool AddAxe (Axe axe)
         {
-            Attack += axe.attackvalue;
-            Health += axe.defensevalue;
+             if( HandStatus == false ) 
+            {
+                Attack += axe.attackvalue;
+                Health += axe.defensevalue;
+                 HandStatus = true;
+                 return HandStatus;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void RemoveAxe (Axe axe)
@@ -60,10 +81,20 @@ namespace RoleplayGame
             Health -= shield.defensevalue;
         }
 
-        public void AddLightArmor (LightArmor lightarmor)
+        public bool AddLightArmor (LightArmor lightarmor)
         {
-            Attack += lightarmor.attackvalue;
-            Health += lightarmor.defensevalue;
+            if( ArmorStatus == false ) 
+            {
+                Attack += lightarmor.attackvalue;
+                Health += lightarmor.defensevalue;
+                 ArmorStatus = true;
+                 return ArmorStatus;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void RemoveLightArmor (LightArmor lightArmor)
@@ -72,10 +103,20 @@ namespace RoleplayGame
             Health -= lightArmor.defensevalue;
         }
 
-        public void AddHeavyArmor (HeavyArmor heavyarmor)
+        public bool AddHeavyArmor (HeavyArmor heavyarmor)
         {
-            Attack += heavyarmor.attackvalue;
-            Health += heavyarmor.defensevalue;
+             if( ArmorStatus == false ) 
+            {
+                Attack += heavyarmor.attackvalue;
+                Health += heavyarmor.defensevalue;
+                 ArmorStatus = true;
+                 return ArmorStatus;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void RemoveHeavyArmor (HeavyArmor heavyarmor)
