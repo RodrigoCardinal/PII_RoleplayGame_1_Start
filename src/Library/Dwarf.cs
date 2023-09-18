@@ -10,8 +10,8 @@ namespace RoleplayGame
         public int Health { get; set; } = 175;
         public int Attack { get; set; } = 25;
         public int InitialHealth { get; set; } = 175;
-        public void HandStatus = false 
-        public void ArmorStatus = false
+        public bool HandStatus = false;
+        public bool ArmorStatus = false;
         
         public Dwarf (string name)
         {
@@ -31,13 +31,13 @@ namespace RoleplayGame
         {
             if( HandStatus == false ) 
             {
-            Attack += sword.attackvalue
-            Health += sword.defensevalue
-            HandStatus = true
+            Attack += sword.attackvalue;
+            Health += sword.defensevalue;
+            HandStatus = true;
             }
             else
             {
-                return -1
+                return -1;
             }
         }
 
@@ -51,13 +51,13 @@ namespace RoleplayGame
         {
            if( HandStatus == false ) 
             {
-            Attack += axe.attackvalue
-            Health += axe.defensevalue
-            HandStatus = true
+            Attack += axe.attackvalue;
+            Health += axe.defensevalue;
+            HandStatus = true;
             }
             else
             {
-                return -1
+                return -1;
             }
         }
 
@@ -71,13 +71,13 @@ namespace RoleplayGame
         {
             if( HandStatus == false ) 
             {
-            Attack += shield.attackvalue
-            Health += shield.defensevalue
-            HandStatus = true
+            Attack += shield.attackvalue;
+            Health += shield.defensevalue;
+            HandStatus = true;
             }
             else
             {
-                return -1
+                return -1;
             }
         }
 
@@ -91,13 +91,13 @@ namespace RoleplayGame
         {
             if( ArmorStatus == false ) 
             {
-            Attack += lightarmor.attackvalue
-            Health += lightarmor.defensevalue
-            ArmorStatus = true
+            Attack += lightarmor.attackvalue;
+            Health += lightarmor.defensevalue;
+            ArmorStatus = true;
             }
             else
             {
-                return -1
+                return -1;
             }
         }
 
@@ -111,13 +111,13 @@ namespace RoleplayGame
         {
             if( ArmorStatus == false ) 
             {
-            Attack += heavyarmor.attackvalue
-            Health += heavyarmor.defensevalue
-            ArmorStatus = true
+            Attack += heavyarmor.attackvalue;
+            Health += heavyarmor.defensevalue;
+            ArmorStatus = true;
             }
             else
             {
-                return -1
+                return -1;
             }
         }
 
