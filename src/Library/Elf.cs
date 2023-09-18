@@ -87,13 +87,13 @@ namespace RoleplayGame
         {
             Health = InitialHealth;
         }
-        public void GetAttack (Elf elf)
+        public int GetAttack (Elf elf)
         {
-            Console.WriteLine ($"El valor de ataque para {elf.Name} es {elf.Attack}");
+            return elf.Attack;
         }
-        public void GetHealth (Elf elf)
+        public int GetHealth (Elf elf)
         {
-            Console.WriteLine ($"El valor de salud para {elf.Name} es {elf.Health}");
+            return elf.Health;
         }
     }
 }

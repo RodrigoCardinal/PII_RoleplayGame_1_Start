@@ -87,13 +87,13 @@ namespace RoleplayGame
         {
             Health = InitialHealth;
         }
-        public void GetAttack (Dwarf dwarf)
+        public int GetAttack (Dwarf dwarf)
         {
-            Console.WriteLine ($"El valor de ataque para {dwarf.Name} es {dwarf.Attack}");
+            return dwarf.Attack;
         }
-        public void GetHealth (Dwarf dwarf)
+        public int GetHealth (Dwarf dwarf)
         {
-            Console.WriteLine ($"El valor de salud para {dwarf.Name} es {dwarf.Health}");
+            return dwarf.Health;
         }
     }
 }
