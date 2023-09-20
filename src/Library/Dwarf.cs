@@ -32,18 +32,24 @@ namespace RoleplayGame
             return character.Health;
         }
       
-        public void AddItems (IItems item)
+        public void AddAttackItems (IAttackItems item)
         {
-                Attack += item.Attackvalue;
-                Health += item.Defensevalue;
+                Attack += item.Attackvalue;                
         }
 
-        public void RemoveItems (IItems item)
+        public void RemoveAttackItems (IAttackItems item)
         {
                 Attack -= item.Attackvalue;
-                Health -= item.Defensevalue;
         }
 
+        public void AddDefensiveItem (IDefensiveItems item)
+        {
+                Health += item.Defensevalue;                
+        }
+        public void RemoveDefensiveItem (IDefensiveItems item)
+        {
+                Health -= item.Defensevalue;                
+        }
         public void Heal (Dwarf dwarf)
         {
             Health = Health + 10;
