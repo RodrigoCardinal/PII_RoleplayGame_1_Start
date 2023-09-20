@@ -23,10 +23,12 @@ namespace RoleplayGame
         {
             character.Health -= Attack;
         }
-         public int GetAttack (ICharacter character)
+        
+        public int GetAttack (ICharacter character)
         {
             return character.Attack;
         }
+
         public int GetHealth (ICharacter character)
         {
             return character.Health;
@@ -34,13 +36,12 @@ namespace RoleplayGame
       
         public bool AddItems (IItems item)
         {
-            if( HandStatus == false ) 
+            if ( HandStatus == false ) 
             {
-                Attack += item.attackvalue;
-                Health += item.defensevalue;
-                 HandStatus = true;
-                 return HandStatus;
-
+                Attack += item.Attackvalue;
+                Health += item.Defensevalue;
+                HandStatus = true;
+                return HandStatus;
             }
             else
             {
@@ -48,22 +49,24 @@ namespace RoleplayGame
             }
         }
 
-        public void RemoveItems (IItems item)
+        public bool RemoveItems (IItems item)
         {
-            Attack -= item.attackvalue;
-            Health -= item.defensevalue;
+            if ( HandStatus == true )                      
+            {
+                Attack -= item.Attackvalue;
+                Health -= item.Defensevalue;
+                HandStatus = false;
+                return HandStatus;                
+            }
+            else
+            {
+                return true;
+            }
         }
+
         public void Heal (Dwarf dwarf)
         {
             Health = Health + 10;
-        }
-        public int GetAttack (ICharacter character)
-        {
-            return ICharacter.Attack;
-        }
-        public int GetHealth (ICharacter character)
-        {
-            return ICharacter.Health;
         }
     }
 }
