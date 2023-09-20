@@ -31,15 +31,23 @@ namespace RoleplayGame
             return character.Health;
         }
       
-        public void AddItems (IItems item)
+        public void AddAttackItems (IAttackItems item)
         {
                 Attack += item.Attackvalue;
-                Health += item.Defensevalue;
         }
-        public void RemoveItems (IItems item)
+        public void RemoveAttackItems (IAttackItems item)
         {
             Attack -= item.Attackvalue;
-            Health -= item.Defensevalue;
+        }
+
+        public void AddDefensiveItems (IDefensiveItems item)
+        {
+                Attack += item.Defensevalue;
+        }
+
+        public void RemoveDefensiveItems (IDefensiveItems item)
+        {
+                Attack -= item.Defensevalue;
         }
 
         public void Heal (ICharacter character)
