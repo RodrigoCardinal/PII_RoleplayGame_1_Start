@@ -22,17 +22,21 @@ namespace RoleplayGame
         {
             ICharacter.Health -= Attack;
         }
-        public void AttackElf (Elf elf)
+         public int GetAttack (ICharacter character)
         {
-            elf.Health -= Attack;
+            return ICharacter.Attack;
         }
-
-        public bool AddSword (Sword sword)
+        public int GetHealth (ICharacter character)
+        {
+            return ICharacter.Health;
+        }
+      
+        public bool AddItems (Items Items)
         {
             if( HandStatus == false ) 
             {
-                Attack += sword.attackvalue;
-                Health += sword.defensevalue;
+                Attack += Items.attackvalue;
+                Health += Items.defensevalue;
                  HandStatus = true;
                  return HandStatus;
 
@@ -136,13 +140,13 @@ namespace RoleplayGame
         {
             Health = InitialHealth;
         }
-        public int GetAttack (Dwarf dwarf)
+        public int GetAttack (ICharacter character)
         {
-            return dwarf.Attack;
+            return ICharacter.Attack;
         }
-        public int GetHealth (Dwarf dwarf)
+        public int GetHealth (ICharacter character)
         {
-            return dwarf.Health;
+            return ICharacter.Health;
         }
     }
 }
