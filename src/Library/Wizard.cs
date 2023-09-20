@@ -8,87 +8,62 @@ namespace RoleplayGame
     public class Wizard
     {
         public string Name { get; set; }
-        public int Health { get; set; } = 125;
-        public int Attack { get; set; } = 10;
-        public int InitialHealth { get; set; } = 125;
-
+        public int Health { get; set; } 
+        public int Attack { get; set; } 
+    
         public Wizard (string name)
         {
             this.Name = name;
+            this.Health = Health;
+            this.Attack = Attack;
         }
 
-        public void AttackElf (Elf elf)
-        {
-            elf.Health -= Attack;
-        }
 
-        public void AttackDwarves (Dwarf Dwarve)
+        
+        public void AttackCharacter (ICharacter character)
         {
-            Dwarve.Health -= Attack;
+            character.Health -= Attack;
         }
+         public int GetAttack (ICharacter character)
+        {
+            return character.Attack;
+        }
+        public int GetHealth (ICharacter character)
+        {
+            return character.Health;
+        }
+      
+        public bool AddItems (IItems item)
+        {
+            if( HandStatus == false ) 
+            {
+                Attack += item.attackvalue;
+                Health += item.defensevalue;
+                 HandStatus = true;
+                 return HandStatus;
 
-        public void AddSword (Sword sword)
-        {
-            Attack += sword.attackvalue;
-            Health += sword.defensevalue;
+            }
+            else
+            {
+                return false;
+            }
         }
-
-        public void RemoveSword (Sword sword)
+        public void RemoveItems (IItems item)
         {
-            Attack -= sword.attackvalue;
-            Health -= sword.defensevalue;
+            Attack -= item.attackvalue;
+            Health -= item.defensevalue;
         }
-
-        public void AddAxe (Axe axe)
+        public void Heal (ICharacter character)
         {
-            Attack += axe.attackvalue;
-            Health += axe.defensevalue;
+            Health = Health + 20;
         }
-
-        public void RemoveAxe (Axe axe)
+        public int GetAttack (ICharacter character)
         {
-            Attack -= axe.attackvalue;
-            Health -= axe.defensevalue;
+            return character.Attack;
         }
-
-        public void AddShield (Shield shield)
+        public int GetHealth (ICharacter character)
         {
-            Attack += shield.attackvalue;
-            Health += shield.defensevalue;
-        }
-
-        public void RemoveShield (Shield shield)
-        {
-            Attack -= shield.attackvalue;
-            Health -= shield.defensevalue;
-        }
-
-        public void AddLightArmor (LightArmor lightarmor)
-        {
-            Attack += lightarmor.attackvalue;
-            Health += lightarmor.defensevalue;
-        }
-
-        public void RemoveLightArmor (LightArmor lightArmor)
-        {
-            Attack -= lightArmor.attackvalue;
-            Health -= lightArmor.defensevalue;
-        }
-
-        public void AddHeavyArmor (HeavyArmor heavyarmor)
-        {
-            Attack += heavyarmor.attackvalue;
-            Health += heavyarmor.defensevalue;
-        }
-
-        public void RemoveHeavyArmor (HeavyArmor heavyarmor)
-        {
-            Attack -= heavyarmor.attackvalue;
-            Health -= heavyarmor.defensevalue;
-        }
-        public void Heal (Wizard wizard)
-        {
-            Health = InitialHealth;
+            return character.Health;
         }
         public void CastSpell (string spellname, SpellBook spellbook)
         {
@@ -98,15 +73,6 @@ namespace RoleplayGame
             {
                 Attack += spellvalue;
             }
-        }
-
-        public int GetAttack (Wizard wizard)
-        {
-            return wizard.Attack;
-        }
-        public int GetHealth (Wizard wizard)
-        {
-            return wizard.Health;
         }
     }
 }

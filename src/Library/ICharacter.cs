@@ -7,7 +7,11 @@ public interface ICharacter
     int Health {get; set;}
     int Attack {get; set;}
 
-    void GetAttack(ICharacter enemy){}
+    void AttackCharacter(ICharacter character){}
+
+    void GetAttack(ICharacter character){}
+
+    void GetHealth(ICharacter character){}
 
     void RemoveItems(IItems item){}
 
