@@ -7,18 +7,18 @@ namespace RoleplayGame
     public class Elf : ICharacter
     {   
         public string Name {get;set;}
-        public int Health { get; set; } = 100;
-        public int Attack { get; set; } = 10;
-        public int InitialHealth { get; set; } = 100;
-        public bool HandStatus = false;
-        public bool ArmorStatus = false;
+        public int Health { get; set; }
+        public int Attack { get; set; }
         public Elf (string name)
         {
             this.Name = name;
+            this.Health = 100;
+            this.Attack = 10;      
         }
-        public void AttackWizard (Wizard attack)
+        }
+        public void AttackCharacter (ICharacter character)
         {
-            attack.Health -= Attack;
+            character.Health -= Attack;
         }
         public void AttackDwarves (Dwarf Dwarve)
         {
@@ -29,8 +29,8 @@ namespace RoleplayGame
         {
             if ( HandStatus == false )                      
             {
-                Attack += item.Attackvalue;
-                Health += item.Defensevalue;
+                Attack += item.attackvalue;
+                Health += item.defensevalue;
                 HandStatus = true;
                 return HandStatus;                
             }
@@ -38,23 +38,10 @@ namespace RoleplayGame
             {
                 return false;
             }
-        }
 
-        public bool RemoveItems (IItems item)
-        {
-            if ( HandStatus == true )                      
-            {
-                Attack -= item.Attackvalue;
-                Health -= item.Defensevalue;
-                HandStatus = false;
-                return HandStatus;                
-            }
-            else
-            {
-                return true;
-            }
-        }
 
+
+        }
         public void Heal (Elf elf)
         {
             Health = InitialHealth;
