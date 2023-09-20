@@ -29,8 +29,8 @@ namespace RoleplayGame
         {
             if ( HandStatus == false )                      
             {
-                Attack += item.attackvalue;
-                Health += item.defensevalue;
+                Attack += item.Attackvalue;
+                Health += item.Defensevalue;
                 HandStatus = true;
                 return HandStatus;                
             }
@@ -38,10 +38,23 @@ namespace RoleplayGame
             {
                 return false;
             }
-
-
-
         }
+
+        public bool RemoveItems (IItems item)
+        {
+            if ( HandStatus == true )                      
+            {
+                Attack -= item.Attackvalue;
+                Health -= item.Defensevalue;
+                HandStatus = false;
+                return HandStatus;                
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public void Heal (Elf elf)
         {
             Health = InitialHealth;

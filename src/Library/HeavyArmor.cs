@@ -2,7 +2,15 @@ namespace RoleplayGame
 {
     public class HeavyArmor : IItems
     {
-        public int attackvalue = 0;
-        public int defensevalue = 30;
+        public int Attackvalue { get; }
+        public int Defensevalue { get; }
+
+        public HeavyArmor ()
+        {
+            this.Attackvalue = 0;
+            this.Defensevalue = 30;
+        }
     }
+
+
 }

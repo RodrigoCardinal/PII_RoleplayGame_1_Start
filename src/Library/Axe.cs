@@ -2,7 +2,13 @@ namespace RoleplayGame
 {
     public class Axe : IItems
     {
-        public int attackvalue = 15;
-        public int defensevalue = 0;
+        public int Attackvalue { get; }
+        public int Defensevalue { get; }
+
+        public Axe ()
+        {
+            this.Attackvalue = 15;
+            this.Defensevalue = 0;
+        }
     }
 }
