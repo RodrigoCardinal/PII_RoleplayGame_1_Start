@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace RoleplayGame 
 {
-    public class Dwarf
+    public class Dwarf : ICharacter
     {
         public string Name { get; set; }
         public int Health { get; set; } = 175;
@@ -18,9 +18,9 @@ namespace RoleplayGame
             this.Name = name;          
         }
 
-        public void AttackWizard (Wizard wizard)
+        public void AttackCharacter (ICharacter Character)
         {
-            wizard.Health -= Attack;
+            ICharacter.Health -= Attack;
         }
         public void AttackElf (Elf elf)
         {
