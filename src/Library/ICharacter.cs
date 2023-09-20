@@ -13,8 +13,10 @@ public interface ICharacter
 
     void GetHealth(ICharacter character){}
 
-    void RemoveItems(IItems item){}
+    void RemoveAttackItems(IAttackItems item){}
+    void RemoveDefensiveItem(IDefensiveItems item){}
 
-    void AddItems(){}
+    void AddAttackItems(IAttackItems item){}
+    void AddDefenseItems(IDefensiveItems item){}
     
 }
