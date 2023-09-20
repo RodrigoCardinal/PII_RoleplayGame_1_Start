@@ -1,10 +1,16 @@
+using RoleplayGame;
+
 public interface ICharacter
 {
-    public void AttackCharacter
 
-    public int GetHealth
+    string Name{get; set;}
+    int Health {get; set;}
+    int Attack {get; set;}
 
-    public int GetAttack
+    void GetAttack(ICharacter enemy){}
 
-    public bool AddItems
+    void RemoveItems(IItems item){}
+
+    void AddItems(){}
+    
 }
