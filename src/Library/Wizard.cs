@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace RoleplayGame
 {   
-    public class Wizard
+    public class Wizard: ICharacter
     {
         public string Name { get; set; }
         public int Health { get; set; } 
