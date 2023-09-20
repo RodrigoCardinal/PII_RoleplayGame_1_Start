@@ -7,36 +7,37 @@ namespace RoleplayGame
     public class Dwarf : ICharacter
     {
         public string Name { get; set; }
-        public int Health { get; set; } = 175;
-        public int Attack { get; set; } = 25;
-        public int InitialHealth { get; set; } = 175;
+        public int Health { get; set; } 
+        public int Attack { get; set; } 
         public bool HandStatus = false;
         public bool ArmorStatus = false;
         
         public Dwarf (string name)
         {
-            this.Name = name;          
+            this.Name = name;    
+            this.Health = 175;
+            this.Attack = 25;      
         }
 
-        public void AttackCharacter (ICharacter Character)
+        public void AttackCharacter (ICharacter character)
         {
-            ICharacter.Health -= Attack;
+            character.Health -= Attack;
         }
          public int GetAttack (ICharacter character)
         {
-            return ICharacter.Attack;
+            return character.Attack;
         }
         public int GetHealth (ICharacter character)
         {
-            return ICharacter.Health;
+            return character.Health;
         }
       
-        public bool AddItems (Items Items)
+        public bool AddItems (IItems item)
         {
             if( HandStatus == false ) 
             {
-                Attack += Items.attackvalue;
-                Health += Items.defensevalue;
+                Attack += item.attackvalue;
+                Health += item.defensevalue;
                  HandStatus = true;
                  return HandStatus;
 
@@ -47,98 +48,14 @@ namespace RoleplayGame
             }
         }
 
-        public void RemoveSword (Sword sword)
+        public void RemoveItems (IItems item)
         {
-            Attack -= sword.attackvalue;
-            Health -= sword.defensevalue;
-        }
-
-        public bool AddAxe (Axe axe)
-        {
-           if( HandStatus == false ) 
-            {
-                Attack += axe.attackvalue;
-                Health += axe.defensevalue;
-                HandStatus = true;
-                return HandStatus;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void RemoveAxe (Axe axe)
-        {
-            Attack -= axe.attackvalue;
-            Health -= axe.defensevalue;
-        }
-
-        public bool AddShield (Shield shield)
-        {
-            if( HandStatus == false ) 
-            {
-                Attack += shield.attackvalue;
-                Health += shield.defensevalue;
-                HandStatus = true;
-                return HandStatus;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void RemoveShield (Shield shield)
-        {
-            Attack -= shield.attackvalue;
-            Health -= shield.defensevalue;
-        }
-
-        public bool AddLightArmor (LightArmor lightarmor)
-        {
-            if( ArmorStatus == false ) 
-            {
-                Attack += lightarmor.attackvalue;
-                Health += lightarmor.defensevalue;
-                ArmorStatus = true;
-                return ArmorStatus;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void RemoveLightArmor (LightArmor lightArmor)
-        {
-            Attack -= lightArmor.attackvalue;
-            Health -= lightArmor.defensevalue;
-        }
-
-        public bool AddHeavyArmor (HeavyArmor heavyarmor)
-        {
-            if( ArmorStatus == false ) 
-            {
-                Attack += heavyarmor.attackvalue;
-                Health += heavyarmor.defensevalue;
-                ArmorStatus = true;
-                return ArmorStatus;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public void RemoveHeavyArmor (HeavyArmor heavyarmor)
-        {
-            Attack -= heavyarmor.attackvalue;
-            Health -= heavyarmor.defensevalue;
+            Attack -= item.attackvalue;
+            Health -= item.defensevalue;
         }
         public void Heal (Dwarf dwarf)
         {
-            Health = InitialHealth;
+            Health = Health + 10;
         }
         public int GetAttack (ICharacter character)
         {
