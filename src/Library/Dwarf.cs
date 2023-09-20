@@ -9,8 +9,6 @@ namespace RoleplayGame
         public string Name { get; set; }
         public int Health { get; set; } 
         public int Attack { get; set; } 
-        public bool HandStatus = false;
-        public bool ArmorStatus = false;
         
         public Dwarf (string name)
         {
@@ -34,34 +32,16 @@ namespace RoleplayGame
             return character.Health;
         }
       
-        public bool AddItems (IItems item)
+        public void AddItems (IItems item)
         {
-            if ( HandStatus == false ) 
-            {
                 Attack += item.Attackvalue;
                 Health += item.Defensevalue;
-                HandStatus = true;
-                return HandStatus;
-            }
-            else
-            {
-                return false;
-            }
         }
 
-        public bool RemoveItems (IItems item)
+        public void RemoveItems (IItems item)
         {
-            if ( HandStatus == true )                      
-            {
                 Attack -= item.Attackvalue;
                 Health -= item.Defensevalue;
-                HandStatus = false;
-                return HandStatus;                
-            }
-            else
-            {
-                return true;
-            }
         }
 
         public void Heal (Dwarf dwarf)

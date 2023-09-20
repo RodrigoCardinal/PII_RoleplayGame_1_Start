@@ -18,8 +18,6 @@ namespace RoleplayGame
             this.Attack = Attack;
         }
 
-
-        
         public void AttackCharacter (ICharacter character)
         {
             character.Health -= Attack;
@@ -33,38 +31,22 @@ namespace RoleplayGame
             return character.Health;
         }
       
-        public bool AddItems (IItems item)
+        public void AddItems (IItems item)
         {
-            if( HandStatus == false ) 
-            {
-                Attack += item.attackvalue;
-                Health += item.defensevalue;
-                 HandStatus = true;
-                 return HandStatus;
-
-            }
-            else
-            {
-                return false;
-            }
+                Attack += item.Attackvalue;
+                Health += item.Defensevalue;
         }
         public void RemoveItems (IItems item)
         {
-            Attack -= item.attackvalue;
-            Health -= item.defensevalue;
+            Attack -= item.Attackvalue;
+            Health -= item.Defensevalue;
         }
+
         public void Heal (ICharacter character)
         {
             Health = Health + 20;
         }
-        public int GetAttack (ICharacter character)
-        {
-            return character.Attack;
-        }
-        public int GetHealth (ICharacter character)
-        {
-            return character.Health;
-        }
+
         public void CastSpell (string spellname, SpellBook spellbook)
         {
             int spellvalue = spellbook.SpellInSpellBook (spellname);
