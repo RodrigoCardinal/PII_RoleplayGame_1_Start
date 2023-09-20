@@ -15,44 +15,36 @@ namespace RoleplayGame
             this.Health = 100;
             this.Attack = 10;      
         }
-        }
         public void AttackCharacter (ICharacter character)
         {
             character.Health -= Attack;
         }
-        public void AttackDwarves (Dwarf Dwarve)
+
+public int GetAttack (ICharacter character)
         {
-            Dwarve.Health -= Attack;
+            return character.Attack;
         }
 
-        public bool AddItems (IItems item)
+        public int GetHealth (ICharacter character)
         {
-            if ( HandStatus == false )                      
-            {
-                Attack += item.attackvalue;
-                Health += item.defensevalue;
-                HandStatus = true;
-                return HandStatus;                
-            }
-            else
-            {
-                return false;
-            }
-
-
-
+            return character.Health;
         }
+      
+        public void AddItems (IItems item)
+        {
+                Attack += item.Attackvalue;
+                Health += item.Defensevalue;
+        }
+
+        public void RemoveItems (IItems item)
+        {
+                Attack -= item.Attackvalue;
+                Health -= item.Defensevalue;
+        }
+
         public void Heal (Elf elf)
         {
-            Health = InitialHealth;
-        }
-        public int GetAttack (Elf elf)
-        {
-            return elf.Attack;
-        }
-        public int GetHealth (Elf elf)
-        {
-            return elf.Health;
+            Health = Health + 10;
         }
     }
 }
