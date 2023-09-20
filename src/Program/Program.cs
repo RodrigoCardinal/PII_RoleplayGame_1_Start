@@ -11,38 +11,21 @@ namespace Program
             Wizard mago = new Wizard ("Mago de prueba");
             Dwarf enano = new Dwarf ("Enano de prueba");
             SpellBook libro = new SpellBook ();
-            Sword espada = new Sword ();
-            Axe hacha = new Axe ();
-            Shield escudo = new Shield();
-            HeavyArmor armadurapesada = new HeavyArmor ();
-            LightArmor armaduraliviana = new LightArmor ();
-
-
-            elfo.AddSword (espada);
-            elfo.AddHeavyArmor (armadurapesada);
-            elfo.GetHealth(elfo);
-            elfo.RemoveHeavyArmor(armadurapesada);
-            elfo.GetAttack (elfo);
-            elfo.AttackDwarves (enano);
             
-            enano.GetHealth (enano);
-            enano.Heal (enano);
-            enano.GetHealth (enano);
-            enano.AddAxe (hacha);
-            enano.AttackWizard (mago);
-            enano.RemoveAxe(hacha);
-            enano.GetAttack(enano);
-            enano.AddShield(escudo);
-            enano.AddLightArmor(armaduraliviana);
 
 
-            mago.Heal (mago);
+            elfo.AddAttackItems(Sword);
+            elfo.AddDefenseItems (HeavyArmor);
+            elfo.GetHealth(Elf);
+            elfo.GetAttack (Elf);
+            elfo.AttackCharacter(Wizard);
+
+            mago.Heal(Wizard);
             mago.CastSpell ("Fireball" , libro);
-            mago.GetAttack (mago);
-            mago.AttackElf (elfo);
-            mago.AddLightArmor(armaduraliviana);
-
-            elfo.GetHealth (elfo);
+            mago.GetAttack(Wizard);
+            mago.AttackElf (Elf);
+            mago.AddDefenseItems(LightArmor);
+            elfo.GetHealth(Elf);
 
         }
     }
