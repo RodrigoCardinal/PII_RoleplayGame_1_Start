@@ -14,9 +14,11 @@ public interface ICharacter
     void GetHealth(ICharacter character){}
 
     void RemoveAttackItems(IAttackItems item){}
+
     void RemoveDefensiveItem(IDefensiveItems item){}
 
     void AddAttackItems(IAttackItems item){}
+    
     void AddDefenseItems(IDefensiveItems item){}
     
 }
