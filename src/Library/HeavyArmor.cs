@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public class HeavyArmor
+    public class HeavyArmor : IItems
     {
         public int attackvalue = 0;
         public int defensevalue = 30;
