@@ -42,12 +42,12 @@ namespace RoleplayGame
 
         public void AddDefensiveItems (IDefensiveItems item)
         {
-                Attack += item.Defensevalue;
+                Health += item.Defensevalue;
         }
 
         public void RemoveDefensiveItems (IDefensiveItems item)
         {
-                Attack -= item.Defensevalue;
+                Health -= item.Defensevalue;
         }
 
         public void Heal (Elf elf)

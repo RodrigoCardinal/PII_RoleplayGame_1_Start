@@ -14,8 +14,8 @@ namespace RoleplayGame
         public Wizard (string name)
         {
             this.Name = name;
-            this.Health = Health;
-            this.Attack = Attack;
+            this.Health = 125;
+            this.Attack = 15;
         }
 
         public void AttackCharacter (ICharacter character)
@@ -42,12 +42,12 @@ namespace RoleplayGame
 
         public void AddDefensiveItems (IDefensiveItems item)
         {
-                Attack += item.Defensevalue;
+                Health += item.Defensevalue;
         }
 
         public void RemoveDefensiveItems (IDefensiveItems item)
         {
-                Attack -= item.Defensevalue;
+                Health -= item.Defensevalue;
         }
 
         public void Heal (ICharacter character)
@@ -55,14 +55,16 @@ namespace RoleplayGame
             Health = Health + 20;
         }
 
-        public void CastSpell (string spellname, SpellBook spellbook)
+        public void CastAttackSpell (IAttackSpells spellname, SpellBook spellbook , ICharacter character)
         {
             int spellvalue = spellbook.SpellInSpellBook (spellname);
-        
-            if (spellvalue > 0)
-            {
-                Attack += spellvalue;
-            }
+            character.Health -= spellvalue;
+        }
+
+        public void CastDefensiveSpell (IDefensiveSpells spellname, SpellBook spellbook , ICharacter character)
+        {
+            int spellvalue = spellbook.SpellInSpellBook (spellname);
+            character.Health += spellvalue;
         }
     }
 }
