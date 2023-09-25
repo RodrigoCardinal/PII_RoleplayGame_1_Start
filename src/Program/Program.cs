@@ -13,7 +13,16 @@ namespace Program
             
             SpellBook libro = new SpellBook ();
             Fireball fireball = new Fireball ();
+            Thunder thunder = new Thunder ();
+            Earthquake earthquake = new Earthquake ();
+            Snowstorm snowstorm = new Snowstorm ();
             HealAlly healally = new HealAlly ();
+
+            libro.AddSpell (fireball , fireball.Attackvalue);
+            libro.AddSpell (thunder , thunder.Attackvalue);
+            libro.AddSpell (earthquake , earthquake.Attackvalue);
+            libro.AddSpell (snowstorm , snowstorm.Attackvalue);
+            libro.AddSpell (healally , healally.Defensevalue);
             
             Sword espada = new Sword ();
             HeavyArmor armadurapesada = new HeavyArmor ();
@@ -22,13 +31,11 @@ namespace Program
             elfo.AddAttackItems (espada);
             elfo.AddDefensiveItems (armadurapesada);
             elfo.GetHealth (elfo);
-            Console.WriteLine (mago.GetHealth (mago));
             elfo.GetAttack (elfo);
             elfo.AttackCharacter (mago);
 
             mago.Heal (mago);
             mago.CastAttackSpell (fireball , libro , elfo);
-            Console.WriteLine (mago.GetHealth (mago));
             mago.GetAttack (mago);
             mago.AttackCharacter (elfo);
             mago.AddDefensiveItems (armaduraligera);
