@@ -2,11 +2,11 @@ namespace RoleplayGame
 {
     public class Axe : IAttackItems
     {
-        public int Attackvalue { get; }
+        public int AttackValue { get; }
 
         public Axe ()
         {
-            this.Attackvalue = 15;
+            this.AttackValue = 15;
         }
     }
 }

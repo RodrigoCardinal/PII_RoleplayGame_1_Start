@@ -2,11 +2,11 @@ namespace RoleplayGame
 {
     public class LightArmor : IDefensiveItems
     {
-        public int Defensevalue { get; }
+        public int DefenseValue { get; }
 
         public LightArmor ()
         {
-            this.Defensevalue = 15;
+            this.DefenseValue = 15;
         }
     }
 }

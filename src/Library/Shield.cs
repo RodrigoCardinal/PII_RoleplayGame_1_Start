@@ -2,11 +2,11 @@ namespace RoleplayGame
 {
     public class Shield : IDefensiveItems
     {
-        public int Defensevalue { get; }
+        public int DefenseValue { get; }
 
         public Shield ()
         {
-            this.Defensevalue = 20;
+            this.DefenseValue = 20;
         }
     }
 }

@@ -1,24 +1,20 @@
 using RoleplayGame;
 
+namespace RoleplayGame
+{
 public interface ICharacter
 {
+    string Name { get; set; }
+    int Health { get; set; }
+    int Attack { get; set; }
 
-    string Name{get; set;}
-    int Health {get; set;}
-    int Attack {get; set;}
-
-    void AttackCharacter(ICharacter character){}
-
-    void GetAttack(ICharacter character){}
-
-    void GetHealth(ICharacter character){}
-
-    void RemoveAttackItems(IAttackItems item){}
-
-    void RemoveDefensiveItem(IDefensiveItems item){}
-
-    void AddAttackItems(IAttackItems item){}
-    
-    void AddDefenseItems(IDefensiveItems item){}
-    
+    void AttackCharacter(ICharacter character);
+    int GetAttack(ICharacter character);
+    int GetHealth(ICharacter character);
+    void AddAttackItem(IAttackItems item);
+    void RemoveAttackItem(IAttackItems item);
+    void AddDefensiveItem(IDefensiveItems item);
+    void RemoveDefensiveItem(IDefensiveItems item);
+    void Heal(ICharacter character);
+}
 }

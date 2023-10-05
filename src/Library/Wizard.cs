@@ -4,67 +4,26 @@ using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 
 namespace RoleplayGame
-{   
-    public class Wizard: ICharacter
+{
+    public class Wizard : CharacterBase
     {
-        public string Name { get; set; }
-        public int Health { get; set; } 
-        public int Attack { get; set; } 
-    
-        public Wizard (string name)
+        public Wizard(string name)
         {
-            this.Name = name;
-            this.Health = 125;
-            this.Attack = 15;
+            Name = name;
+            Health = 125;
+            Attack = 15;
         }
 
-        public void AttackCharacter (ICharacter character)
+        public void CastAttackSpell(IAttackSpells spell, SpellBook spellbook, ICharacter character)
         {
-            character.Health -= Attack;
-        }
-         public int GetAttack (ICharacter character)
-        {
-            return character.Attack;
-        }
-        public int GetHealth (ICharacter character)
-        {
-            return character.Health;
-        }
-      
-        public void AddAttackItems (IAttackItems item)
-        {
-                Attack += item.Attackvalue;
-        }
-        public void RemoveAttackItems (IAttackItems item)
-        {
-            Attack -= item.Attackvalue;
+            int spellValue = spellbook.SpellInSpellBook(spell);
+            character.Health -= spellValue;
         }
 
-        public void AddDefensiveItems (IDefensiveItems item)
+        public void CastDefenseSpell(IDefensiveSpells spell, SpellBook spellbook, ICharacter character)
         {
-                Health += item.Defensevalue;
-        }
-
-        public void RemoveDefensiveItems (IDefensiveItems item)
-        {
-                Health -= item.Defensevalue;
-        }
-
-        public void Heal (ICharacter character)
-        {
-            Health = Health + 20;
-        }
-
-        public void CastAttackSpell (IAttackSpells spellname, SpellBook spellbook , ICharacter character)
-        {
-            int spellvalue = spellbook.SpellInSpellBook (spellname);
-            character.Health -= spellvalue;
-        }
-
-        public void CastDefensiveSpell (IDefensiveSpells spellname, SpellBook spellbook , ICharacter character)
-        {
-            int spellvalue = spellbook.SpellInSpellBook (spellname);
-            character.Health += spellvalue;
+            int spellValue = spellbook.SpellInSpellBook(spell);
+            character.Health += spellValue;
         }
     }
 }
