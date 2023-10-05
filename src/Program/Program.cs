@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using RoleplayGame;
 
 namespace Program
@@ -28,20 +29,17 @@ namespace Program
             HeavyArmor armadurapesada = new HeavyArmor ();
             LightArmor armaduraligera = new LightArmor ();
 
-            elfo.AddAttackItems (espada);
-            elfo.AddDefensiveItems (armadurapesada);
-            elfo.GetHealth (elfo);
-            elfo.GetAttack (elfo);
+            elfo.AddAttackItem (espada);
+            elfo.AddDefensiveItem (armadurapesada);
+            Console.WriteLine($"Elfo: Salud={elfo.GetHealth(elfo)}, Ataque={elfo.GetAttack(elfo)}");
             elfo.AttackCharacter (mago);
 
             mago.Heal (mago);
             mago.CastAttackSpell (fireball , libro , elfo);
-            mago.GetAttack (mago);
+            Console.WriteLine($"Mago: Salud={mago.GetHealth(mago)}, Ataque={mago.GetAttack(mago)}");
             mago.AttackCharacter (elfo);
-            mago.AddDefensiveItems (armaduraligera);
-            elfo.GetHealth (elfo);
-
+            mago.AddDefensiveItem (armaduraligera);
+            Console.WriteLine($"Elfo: Salud={elfo.GetHealth(elfo)}");
         }
     }
 }
- 
