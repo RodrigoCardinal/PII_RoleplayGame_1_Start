@@ -7,6 +7,8 @@ namespace RoleplayGame
 {
     public class Wizard : CharacterBase
     {
+        public int VictoryPoints { get; private set; }
+
         public Wizard(string name)
         {
             Name = name;
@@ -24,6 +26,11 @@ namespace RoleplayGame
         {
             int spellValue = spellbook.SpellInSpellBook(spell);
             character.Health += spellValue;
+        }
+
+        public void AccumulateVictoryPoints(int points)
+        {
+            VictoryPoints += points;
         }
     }
 }
