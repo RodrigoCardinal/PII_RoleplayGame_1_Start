@@ -1,6 +1,6 @@
 namespace RoleplayGame
 {
-    public interface IHero
+    public interface IHero : ICharacter
     {
        void AccumulateVictoryPoints(int points);
     }
