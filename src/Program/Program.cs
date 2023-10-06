@@ -1,6 +1,8 @@
 ﻿
 using System;
 using RoleplayGame;
+using System.Collections.Generic;
+
 
 namespace Program
 {
@@ -8,38 +10,23 @@ namespace Program
     {
         static void Main (string [] args)
         {
-            Elf elfo = new Elf ("Elfo de prueba");
-            Wizard mago = new Wizard ("Mago de prueba");
-            Dwarf enano = new Dwarf ("Enano de prueba");
-            
-            SpellBook libro = new SpellBook ();
-            Fireball fireball = new Fireball ();
-            Thunder thunder = new Thunder ();
-            Earthquake earthquake = new Earthquake ();
-            Snowstorm snowstorm = new Snowstorm ();
-            HealAlly healally = new HealAlly ();
+            IHero hero1 = new Dwarf("Gimli");
+            IHero hero2 = new Elf("Legolas");
+          
+            IEnemy enemy1 = new DarkWizardEnemy("Saruman");
+            IEnemy enemy2 = new KnightEnemy("JhonSouls");
+    
 
-            libro.AddSpell (fireball , fireball.Attackvalue);
-            libro.AddSpell (thunder , thunder.Attackvalue);
-            libro.AddSpell (earthquake , earthquake.Attackvalue);
-            libro.AddSpell (snowstorm , snowstorm.Attackvalue);
-            libro.AddSpell (healally , healally.Defensevalue);
-            
-            Sword espada = new Sword ();
-            HeavyArmor armadurapesada = new HeavyArmor ();
-            LightArmor armaduraligera = new LightArmor ();
+            List<IHero> heroes = new List<IHero> { hero1, hero2 };
 
-            elfo.AddAttackItem (espada);
-            elfo.AddDefensiveItem (armadurapesada);
-            Console.WriteLine($"Elfo: Salud={elfo.GetHealth(elfo)}, Ataque={elfo.GetAttack(elfo)}");
-            elfo.AttackCharacter (mago);
+            List<IEnemy> enemies = new List<IEnemy> { enemy1, enemy2 };
 
-            mago.Heal (mago);
-            mago.CastAttackSpell (fireball , libro , elfo);
-            Console.WriteLine($"Mago: Salud={mago.GetHealth(mago)}, Ataque={mago.GetAttack(mago)}");
-            mago.AttackCharacter (elfo);
-            mago.AddDefensiveItem (armaduraligera);
-            Console.WriteLine($"Elfo: Salud={elfo.GetHealth(elfo)}");
+    
+            Encounter encounter = new Encounter(heroes, enemies);
+            encounter.DoEncounter();
+
+            Console.WriteLine("Resultados del encuentro:");
+
         }
     }
 }

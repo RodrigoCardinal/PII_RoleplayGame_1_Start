@@ -18,71 +18,63 @@ namespace RoleplayGame
         {
             Console.WriteLine("Comienza el encuentro:");
 
+            int TargetIndexHero = 0;
+            int TargetIndexEnemy = 0;
+
             while (heroes.Count > 0 && enemies.Count > 0)
-            {
-                int TargetIndexHero = 0;
+{
+    Console.WriteLine("Estado actual del encuentro:");
+    Console.WriteLine($"Héroes restantes: {heroes.Count}");
+    Console.WriteLine($"Enemigos restantes: {enemies.Count}");
+
+    // Acá es cuando atacan los enemigos
+    foreach (var enemy in enemies)
+    {
+        if (heroes.Count > 0)
+        {
+            int targetHeroIndex = TargetIndexHero % heroes.Count; // Asegura que el índice esté dentro de los límites
+            IHero targetHero = heroes[targetHeroIndex];
+            int heroHealth = targetHero.GetHealth(targetHero);
+            int enemyAttack = enemy.GetAttack(enemy);
+            Console.WriteLine($"Enemigo ataca a héroe. Salud del héroe: {heroHealth}, Ataque del enemigo: {enemyAttack}");
             
-                //Acá es cuando atacan los enemigos
-                foreach (var enemy in enemies)
-                {
-                    if (heroes.Count > 0)
-                    {
-                        // targetHero es el heroe que se va a atacar
-                        IHero targetHero = heroes[TargetIndexHero];
-
-                        int heroHealth = targetHero.GetHealth(targetHero);
-                        int enemyAttack = enemy.GetAttack(enemy);
-
-                        heroHealth -= enemyAttack;
-
-                        if (TargetIndexHero < heroes.Count)
-                        {
-                        // aumento el indice para que se ataque al siguiente heroe
-                        TargetIndexHero++;
-                        }
-                        else 
-                        {
-                            TargetIndexHero = 0;
-                        }
-                        
-                    }
-                }
-
-                //Acá es cuando atacan los heroes
-                foreach (var hero in heroes)
-                {
-                    int TargetIndexEnemy = 0;
-
-                    if (enemies.Count > 0)
-                    {
-                        // targetEnemy es el heroe que se va a atacar
-                        IEnemy targetEnemy = enemies[TargetIndexEnemy];
-
-                        int enemyHealth = targetEnemy.GetHealth(targetEnemy);
-                        int heroAttack = hero.GetAttack(hero);
-
-                        enemyHealth -= heroAttack;
-
-                        if (enemyHealth < 0)
-                        {
-                            hero.AccumulateVictoryPoints(targetEnemy.VictoryPoints);
-                        }
-
-                        if (TargetIndexEnemy < enemies.Count)
-                        {
-                        // aumento el indice para que se ataque al siguiente heroe
-                        TargetIndexEnemy++;
-                        }
-                        else 
-                        {
-                            TargetIndexEnemy = 0;
-                        }
-                        
-                    }
-                }
+            if (heroHealth <= 0)
+            {
+                heroes.Remove(targetHero);
+                Console.WriteLine($"Se ha eliminado un héroe. {heroes.Count} héroes restantes.");
             }
 
-            Console.WriteLine("Fin del encuentro.");
+            enemy.AttackCharacter(targetHero);
+
+            TargetIndexHero++; // Incrementa el índice para que se ataque al siguiente héroe
+        }
+    }
+
+    // Acá es cuando atacan los héroes
+    foreach (var hero in heroes)
+    {
+        if (enemies.Count > 0)
+        {
+            int targetEnemyIndex = TargetIndexEnemy % enemies.Count; // Asegura que el índice esté dentro de los límites
+            IEnemy targetEnemy = enemies[targetEnemyIndex];
+
+            int enemyHealth = targetEnemy.GetHealth(targetEnemy);
+            int heroAttack = hero.GetAttack(hero);
+            Console.WriteLine($"Héroe ataca a enemigo. Salud del enemigo: {enemyHealth}, Ataque del héroe: {heroAttack}");
+
+            hero.AttackCharacter(targetEnemy);
+
+            if (enemyHealth <= 0)
+            {
+                hero.AccumulateVictoryPoints(targetEnemy.VictoryPoints);
+                enemies.Remove(targetEnemy);
+                Console.WriteLine($"Se ha eliminado un enemigo. {enemies.Count} enemigos restantes.");
+            }
+
+            TargetIndexEnemy++; // Incrementa el índice para que se ataque al siguiente enemigo
+        }
+    }
+}
         }
     }
 }
