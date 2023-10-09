@@ -16,6 +16,11 @@ namespace RoleplayGame
 
         public void DoEncounter()
         {
+            if (heroes.Count == 0 || enemies.Count == 0 )
+            {
+              Console.WriteLine("No hay enemigos o heroes para combatir");
+                return;
+            }
             Console.WriteLine("Comienza el encuentro:");
 
             int TargetIndexHero = 0;
